@@ -35,6 +35,18 @@ public class ContenidoService {
     public Contenido save(Contenido contenido) {
         return repository.save(contenido);
     }
+    public Contenido update(Long id, Contenido nuevoContenido) {
+        return repository.findById(id).map(contenido -> {
+            contenido.setTitulo(nuevoContenido.getTitulo());
+            contenido.setGen(nuevoContenido.getGen());
+            contenido.setPoster(nuevoContenido.getPoster());
+            contenido.setDuracion(nuevoContenido.getDuracion());
+            contenido.setTrailer(nuevoContenido.getTrailer());
+            contenido.setResumen(nuevoContenido.getResumen());
+            return repository.save(contenido);
+        }).orElseThrow(() -> new RuntimeException("Contenido no encontrado"));
+    }
+
 
 
 

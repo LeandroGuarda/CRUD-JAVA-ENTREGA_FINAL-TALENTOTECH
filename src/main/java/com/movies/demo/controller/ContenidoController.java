@@ -52,6 +52,11 @@ public class ContenidoController {
     public Contenido create(@RequestBody Contenido contenido) {
         return service.save(contenido);
     }
+    @PutMapping("/update/{id}")
+    public Contenido update(@PathVariable Long id, @RequestBody Contenido contenido) {
+        return service.update(id, contenido);
+    }
+
 
 
 
