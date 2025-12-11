@@ -26,4 +26,17 @@ public class ContenidoService {
     public List<Contenido> searchByGenero(String gen) {
         return repository.findByGen(gen);
     }
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+    public boolean existsById(Long id) {
+        return repository.existsById(id);
+    }
+    public Contenido save(Contenido contenido) {
+        return repository.save(contenido);
+    }
+
+
+
+
 }
